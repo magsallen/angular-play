@@ -4,15 +4,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="controllers.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="ToDoFactory.js"></script>
+    <script type="text/javascript" src="ToDoService.js"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <meta charset="utf-8">
-      <title></title>
+      <title>title</title>
   </head>
   <body>
-    <div ng-controller="ToDoController as controller">
-      <p ng-repeat="todo in controller.todos">
-        {{ todo.task }}: {{ todo.completed ? "completed" : "not completed" }}
+    <div ng-controller="ToDoController as ctrl">
+      <p ng-repeat="todo in ctrl.todos">
+        {{ todo.text }}: {{ todo.completed ? "completed" : "not completed" }}
+        <button ng-click="todo.complete();">Mark complete</button>
       </p>
+      <input type="text" ng-model="todoText">
+      <button ng-click="ctrl.addToDo(todoText);";>Add a ToDo</button>
+      <button ng-click="ctrl.removeToDo();">Remove last ToDo</button>
+
     </div>
   </body>
 </html>
